@@ -6,7 +6,6 @@ on:
 
 jobs:
   lint:
-    name: npm run lint
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -15,7 +14,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Cache packages
@@ -30,5 +29,6 @@ jobs:
       - name: Install packages
         if: ${{ steps.cache_npm_packages.outputs.cache-hit != 'true' }}
         run: npm i
+
       - name: Run lint
         run: npm run lint
