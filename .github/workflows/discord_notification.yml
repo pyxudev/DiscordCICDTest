@@ -4,7 +4,7 @@ name: Discord Notify Workflow
 on:
   workflow_run:
     workflows: ["Lint"]
-    types: [requested, completed]
+    types: [completed]
     branches:
       - "*"
 
