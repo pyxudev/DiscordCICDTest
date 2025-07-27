@@ -24,6 +24,6 @@ jobs:
           curl -H "Content-Type: application/json" \
             -X POST \
             -d "{
-              \"content\": \"📣 成果物（アウトプット）のコミットがありました！\n👤 ユーザー: ${{ github.actor }}\n📝 メッセージ: $COMMIT_MSG\n🔗 https://github.com/${{ github.repository }}/commits/main\"
+              \"content\": \"📣 今日のアウトプット！\n📝 メッセージ: $COMMIT_MSG\n🔗 https://github.com/${{ github.repository }}/commits/main\"
             }" \
             ${{ secrets.DISCORD_WEBHOOK_URL }}
