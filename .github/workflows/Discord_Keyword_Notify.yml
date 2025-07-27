@@ -16,15 +16,15 @@ jobs:
         contains(github.event.head_commit.message, '成果')
       ) }}
 
-    steps:
-      - name: Notify Discord
-        run: |
-          COMMIT_MSG="${{ github.event.head_commit.message }}"
-          echo "✅ 条件に一致したコミットを検出しました: $COMMIT_MSG"
-
-          curl -H "Content-Type: application/json" \
-            -X POST \
-            -d "{
-              \"content\": \"📣 成果物（アウトプット）のコミットがありました！\n👤 ユーザー: ${{ github.actor }}\n📝 メッセージ: $COMMIT_MSG\n🔗 https://github.com/${{ github.repository }}/commits/main\"
-            }" \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
+      steps:
+        - name: Notify Discord
+          run: |
+            COMMIT_MSG="${{ github.event.head_commit.message }}"
+            echo "✅ 条件に一致したコミットを検出しました: $COMMIT_MSG"
+  
+            curl -H "Content-Type: application/json" \
+              -X POST \
+              -d "{
+                \"content\": \"📣 成果物（アウトプット）のコミットがありました！\n👤 ユーザー: ${{ github.actor }}\n📝 メッセージ: $COMMIT_MSG\n🔗 https://github.com/${{ github.repository }}/commits/main\"
+              }" \
+              ${{ secrets.DISCORD_WEBHOOK_URL }}
