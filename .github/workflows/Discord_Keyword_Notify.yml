@@ -26,4 +26,4 @@ jobs:
             -d "{
               \"content\": \"📣 今日のアウトプット！\n📝 メッセージ: $COMMIT_MSG\n🔗 https://github.com/${{ github.repository }}/commits/main\"
             }" \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
+            ${{ secrets.DISCORD_WEBHOOK_URL_WORKFLOW }}
