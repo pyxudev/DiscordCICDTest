@@ -15,7 +15,7 @@ jobs:
         contains(github.event.head_commit.message, 'アウトプット') ||
         contains(github.event.head_commit.message, '成果')
       ) }}
-
+      # ここそろえる！
       steps:
         - name: Notify Discord
           run: |
