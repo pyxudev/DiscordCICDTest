@@ -13,10 +13,10 @@ jobs:
       # コミットメッセージに「アウトプット」または「成果」が含まれているか
       - name: Notify Discord
         if: >-
-            ${{ github.event.head_commit.message && (
-              contains(github.event.head_commit.message, 'アウトプット') ||
-              contains(github.event.head_commit.message, '成果')
-            ) }}
+          ${{ github.event.head_commit.message && (
+            contains(github.event.head_commit.message, 'アウトプット') ||
+            contains(github.event.head_commit.message, '成果')
+          ) }}
         run: |
           COMMIT_MSG="${{ github.event.head_commit.message }}"
           echo "✅ 条件に一致したコミットを検出しました: $COMMIT_MSG"
